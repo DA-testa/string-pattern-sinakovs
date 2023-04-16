@@ -1,6 +1,8 @@
 # Makars Sinakovs 221RDB519
 def main():
-    print_occurrences(get_occurrences(*read_input()))
+    data=read_input()
+    print_occurrences(get_occurrences(data[0],data[1]))
+
 
 def read_input():
     letter=input()
