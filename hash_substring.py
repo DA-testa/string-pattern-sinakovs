@@ -1,20 +1,24 @@
+# Makars Sinakovs 221RDB519
 def main():
+    print_occurrences(get_occurrences(*read_input()))
+
+def read_input():
     letter=input()
     if letter =="I":
-        line=input()
-        data=line.split(" ")
-        position=rabinKarpAlgorithm(data[0],data[1])
-        print(position)
-
+        pattern=input()
+        text=input()
+        return(pattern.rstrip(),text.rstrip())
     if letter =="F":
         filename=input()
-        with open(("./test/"+filename,"r")) as file:
-            line=file.read()
-            data=line.split(" ")
-            position=rabinKarpAlgorithm(data[0],data[1])
-            print(position)
+        with open(("./tests/"+filename),"r") as file:
+            pattern=file.readline()
+            text=file.readline()
+        return(pattern.rstrip(),text.rstrip())
 
-def rabinKarpAlgorithm(pattern, text):
+def print_occurrences(output): 
+    print(' '.join(map(str, output)))
+
+def get_occurrences(pattern, text):
     pattern_len=len(pattern)
     text_len =len(text)
     prime = 256
