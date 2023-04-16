@@ -1,9 +1,4 @@
 # Makars Sinakovs 221RDB519
-def main():
-    data=read_input()
-    print_occurrences(get_occurrences(data[0],data[1]))
-
-
 def read_input():
     letter=input()
     if letter =="I":
@@ -45,5 +40,5 @@ def get_occurrences(pattern, text):
             text_hash = (text_hash - ord(text[i]) * pow(prime, 0)) / prime + ord(text[i+pattern_len]) * pow(prime, pattern_len-1)
     return res
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    print_occurrences(get_occurrences(*read_input()))
